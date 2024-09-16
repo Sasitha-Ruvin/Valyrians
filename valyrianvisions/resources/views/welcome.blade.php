@@ -21,11 +21,13 @@
         <h2 class="text-3xl font-semibold text-center mb-8">Featured</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             @forelse($product as $pro)
-            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                <img src="{{ url($pro->pro_image_url)}}" alt="{{ $pro->pro_name }}" class="h-48 w-full object-cover">
-                <div class="p-6">
-                    <h3 class="text-xl font-semibold">{{ $pro->pro_name }}</h3>
-                    <p class="text-gray-600 mt-2">{{ $pro->description }}</p>
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
+                <img src="{{ url($pro->pro_image_url) }}" alt="{{ $pro->pro_name }}" class="h-56 w-full object-cover">
+                <div class="flex-1 p-6 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-semibold">{{ $pro->pro_name }}</h3>
+                        <p class="text-gray-600 mt-2">{{ $pro->description }}</p>
+                    </div>
                     <div class="flex justify-between items-center mt-4">
                         <span class="text-gray-800 font-bold">{{ $pro->pro_price }}$</span>
                         <button class="bg-black text-white px-4 py-2 rounded">Add to Cart</button>
@@ -33,6 +35,7 @@
                 </div>
             </div>
             @empty
+            <p class="text-center text-gray-600">No featured products available.</p>
             @endforelse
         </div>
     </div>
