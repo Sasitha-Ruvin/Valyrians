@@ -15,6 +15,8 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 </head>
 <body class="bg-[#f9f3eb]">
     <div id="app">
@@ -22,15 +24,15 @@
             <div class="container mx-auto flex justify-between items-center py-4">
                 <!-- Logo Section -->
                 <a class="flex items-center" href="{{ url('/') }}">
-                    <img src="{{ asset('images/valyrianvisions.png') }}" alt="Logo" class="h-10"> <!-- Adjust the path to your logo -->
+                    <img src="{{ asset('images/logo.jpg') }}" alt="Logo" class="h-24 w-36"> 
                 </a>
 
                 <!-- Navigation Links -->
                 <div class="hidden md:flex space-x-8">
-                    <a href="#" class="text-black hover:text-gray-700">Home</a>
+                    <a href="{{('/')}}" class="text-black hover:text-gray-700">Home</a>
                     <a href="#" class="text-black hover:text-gray-700">About</a>
                     <a href="#" class="text-black hover:text-gray-700">Contact</a>
-                    <a href="#" class="text-black hover:text-gray-700">Products</a>
+                    <a href="{{url('/products')}}" class="text-black hover:text-gray-700">Products</a>
                     <a href="#" class="text-black hover:text-gray-700">Commission</a>
                 </div>
 
@@ -94,6 +96,36 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <footer class="bg-gray-800 text-gray-200 py-12">
+    <div class="container mx-auto flex justify-between items-start">
+        <!-- Company Info -->
+        <div>
+            <img src="{{ asset('images/logo.jpg') }}" alt="Valyrian Visions" class="h-12 mb-4">
+            <p>123/Main Street</p>
+            <p>Main City</p>
+            <p>0123-456-789</p>
+            <p>example@mail.com</p>
+        </div>
+
+        <!-- Social Links -->
+        <div class="space-x-4">
+            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-whatsapp"></i></a>
+        </div>
+
+        <!-- Footer Links -->
+        <div class="space-y-2">
+            <a href="#" class="text-gray-400 hover:text-white">Home</a>
+            <a href="#" class="text-gray-400 hover:text-white">About</a>
+            <a href="#" class="text-gray-400 hover:text-white">Contact</a>
+            <a href="#" class="text-gray-400 hover:text-white">Products</a>
+            <a href="#" class="text-gray-400 hover:text-white">Commission</a>
+        </div>
+    </div>
+</footer>
+
     </div>
 
     <script>

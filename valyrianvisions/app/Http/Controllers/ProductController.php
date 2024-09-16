@@ -55,7 +55,9 @@ class ProductController extends Controller
 
         $item->update([
             'pro_name'=>$request->input('Product_Name'),
+            'pro_category'=>$request->input('category'),
             'pro_price'=>$request->input('product_price'),
+            'description'=>$request->input('description'),
             'pro_image_url'=>$fileUrl
         ]);
 

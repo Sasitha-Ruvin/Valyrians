@@ -4,7 +4,7 @@
 
 <!-- Main Section (Banner) -->
 <section class="relative">
-    <div class="h-96 bg-cover bg-center" style="background-image: url('path_to_banner_image');">
+    <div class="h-96 bg-cover bg-center" style="background-image: url('{{ asset('images/mainbanner.jpg') }}');">
         <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center">
             <div class="text-center text-white">
                 <h1 class="text-5xl font-bold">Valyrian Visions</h1>
@@ -18,7 +18,7 @@
 <!-- Featured Products Section -->
 <section class="py-12 bg-gray-50">
     <div class="container mx-auto">
-        <h2 class="text-3xl font-semibold text-center mb-8">Featured</h2>
+        <h2 class="text-3xl font-semibold text-center mb-8">Latest Masterpieces</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             @forelse($product as $pro)
             <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col">
@@ -58,33 +58,6 @@
 </section>
 
 <!-- Footer Section -->
-<footer class="bg-gray-800 text-gray-200 py-12">
-    <div class="container mx-auto flex justify-between items-start">
-        <!-- Company Info -->
-        <div>
-            <img src="path_to_footer_logo" alt="Valyrian Visions" class="h-12 mb-4">
-            <p>123/Main Street</p>
-            <p>Main City</p>
-            <p>0123-456-789</p>
-            <p>example@mail.com</p>
-        </div>
 
-        <!-- Social Links -->
-        <div class="space-x-4">
-            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-whatsapp"></i></a>
-        </div>
-
-        <!-- Footer Links -->
-        <div class="space-y-2">
-            <a href="#" class="text-gray-400 hover:text-white">Home</a>
-            <a href="#" class="text-gray-400 hover:text-white">About</a>
-            <a href="#" class="text-gray-400 hover:text-white">Contact</a>
-            <a href="#" class="text-gray-400 hover:text-white">Products</a>
-            <a href="#" class="text-gray-400 hover:text-white">Commission</a>
-        </div>
-    </div>
-</footer>
 
 @endsection
