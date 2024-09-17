@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Controllers\FeaturedProductsController;
 
 use Illuminate\Http\Request;
 
@@ -28,7 +29,8 @@ class HomeController extends Controller
             return view('home');
         }else{
             // user landing
-            return view('welcome');
+            // return view('welcome');
+           return  FeaturedProductsController::show();
         }
        
     }

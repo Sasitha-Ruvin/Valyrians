@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<script>
+    const cartBtn = document.getElementById('cart-button');
+</script>
 <div class="bg-[#f9f3eb] min-h-screen">
     <!-- Hero Section -->
     <div class="relative">
@@ -16,7 +19,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             @forelse($products as $pro)
                 <div class="bg-white shadow-lg rounded-lg overflow-hidden cursor-pointer" 
-                     onclick="openProductModal('{{ $pro->pro_name }}', '{{ $pro->pro_image_url }}', '{{ $pro->description }}', '{{ $pro->pro_price }}', '{{ $pro->artist }}')">
+                     onclick="openProductModal('{{ $pro->pro_name }}', '{{ $pro->pro_image_url }}', '{{ $pro->description }}', '{{ $pro->pro_price }}', '{{ $pro->id }}')"> <!-- Updated with pro.id -->
                     <img src="{{ $pro->pro_image_url }}" alt="{{ $pro->pro_name }}" class="w-full h-64 object-cover">
                     <div class="p-6">
                         <h2 class="text-2xl font-bold mb-2">{{ $pro->pro_name }}</h2>
@@ -52,9 +55,12 @@
                 <p class="text-gray-700" id="modalProductDescription"></p>
                 <p class="text-xl font-semibold mt-2">Price: <span id="modalProductPrice"></span></p>
                 <div class="flex space-x-2 mt-4">
-                    <button class="bg-blue-600 text-white px-4 py-2 rounded">Buy Now</button>
                     <button class="bg-green-600 text-white px-4 py-2 rounded">Add to Wishlist</button>
-                    <button class="bg-black text-white px-4 py-2 rounded">Add to Cart</button>
+                    <form action="{{ url('cart/save') }}" method="post" class="bg-black text-white px-4 py-2 rounded items-center justify-center">
+                        @csrf
+                        <input type="hidden" id="pro_id" name="pro_id" value=""> <!-- Correctly set the value dynamically -->
+                        <input type="submit" value="Add to Cart">
+                    </form>
                 </div>
             </div>
         </div>
@@ -63,12 +69,12 @@
 
 <script>
     // Function to open the product modal and fill in the details
-    function openProductModal(name, imageUrl, description, price, artist) {
+    function openProductModal(name, imageUrl, description, price, pro_id) {
         document.getElementById('modalProductName').textContent = name;
         document.getElementById('modalProductImage').src = imageUrl;
         document.getElementById('modalProductDescription').textContent = description;
         document.getElementById('modalProductPrice').textContent = `$${price}`;
-   
+        document.getElementById('pro_id').value = pro_id; // Correctly setting the value of pro_id
         
         document.getElementById('productModal').classList.remove('hidden');
     }

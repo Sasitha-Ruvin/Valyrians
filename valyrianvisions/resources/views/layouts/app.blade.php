@@ -34,6 +34,9 @@
                     <a href="#" class="text-black hover:text-gray-700">Contact</a>
                     <a href="{{url('/products')}}" class="text-black hover:text-gray-700">Products</a>
                     <a href="#" class="text-black hover:text-gray-700">Commission</a>
+                    <a href="{{url('cart/cart')}}" class="text-black hover:text-gray-700">Cart</a>
+                    
+
                 </div>
 
                 <!-- Authentication Links -->
@@ -68,9 +71,7 @@
                     @endguest
 
                     <!-- Cart Icon -->
-                    <a href="#" class="text-black text-2xl">
-                        <i class="fas fa-shopping-cart"></i> <!-- Add FontAwesome or similar for the cart icon -->
-                    </a>
+                   
                 </div>
 
                 <!-- Hamburger Menu for Small Screens -->
@@ -89,6 +90,8 @@
                     <a href="#" class="block text-black hover:text-gray-700">Contact</a>
                     <a href="#" class="block text-black hover:text-gray-700">Products</a>
                     <a href="#" class="block text-black hover:text-gray-700">Commission</a>
+
+                    
                 </div>
             </div>
         </nav>
