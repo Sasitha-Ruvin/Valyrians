@@ -11,14 +11,14 @@ use App\Http\Controllers\CartController;
 
 Route::get('/', [FeaturedProductsController::class, 'show']);
 Route::get('/products', [App\Http\Controllers\ProductPageController::class, 'index']);
-Route::get('cart/cart',[App\Http\Controllers\CartController::class, 'index']);
 
-Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
 
 
 Auth::routes();
 Route::middleware(App\Http\Middleware\UserRoleMiddleware::class)->group(function(){
     Route::post('cart/save', [App\Http\Controllers\CartController::class, 'save']);
+    Route::get('cart/cart',[App\Http\Controllers\CartController::class, 'index']);
+    Route::delete('/cart/remove/{id}', [CartController::class, 'remove'])->name('cart.remove');
 
 
 });

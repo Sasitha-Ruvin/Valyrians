@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="flex justify-center items-center min-h-screen bg-[#F5EDE4]">
-    <div class="w-full max-w-md bg-[#F5EDE4] p-8 rounded-md shadow-lg">
+<div class="flex justify-center items-center min-h-screen bg-cover bg-center" style="background-image: url('{{ asset('images/loginbackground.jpg') }}');">
+    <div class="w-full max-w-md bg-[#f5dcbf] p-8 rounded-md shadow-lg">
         <div class="text-center mb-6">
             <h2 class="text-3xl font-bold text-gray-900 mb-2">Create an Account</h2>
             <p class="text-gray-600">Join Valyrian Visions Today</p>

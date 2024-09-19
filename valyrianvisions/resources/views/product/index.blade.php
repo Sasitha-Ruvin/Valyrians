@@ -54,13 +54,13 @@
 <script>
     function confirmDelete(productId) {
         Swal.fire({
-            title: 'Are you sure you want to delete?',
-            text: "You won't be able to revert this!",
+            title: 'Are you sure you want to delete this item?',
+            text: "You won't be able to revert this action!",
             icon: 'Warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Yes'
         }).then((result) => {
             if (result.isConfirmed) {
                 // If the user confirms, submit the form to delete the product
